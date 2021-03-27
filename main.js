@@ -9,6 +9,9 @@ const arrayOptions = [];
 
 const addOptions = (e) => {
   e.preventDefault();
+  if (!input.value) {
+    return;
+  }
   let userValue = input.value;
   arrayOptions.push(userValue);
   input.value = "";
