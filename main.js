@@ -7,19 +7,26 @@ const screenResult = document.querySelector("h1");
 
 const arrayOptions = [];
 
+const checkValue = (item) => arrayOptions.some((element) => element === item);
+
 const addOptions = (e) => {
   e.preventDefault();
+
   if (!input.value) {
     return;
+  } else if (checkValue(input.value)) {
+    console.log("checked");
+    return;
   }
-  let userValue = input.value;
-  arrayOptions.push(userValue);
+
+  arrayOptions.push(input.value);
   input.value = "";
 };
 
 const resetArray = (e) => {
   e.preventDefault();
   arrayOptions.length = 0;
+  screenResult.textContent = "";
 };
 
 const showHint = () => {
